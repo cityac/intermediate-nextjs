@@ -43,8 +43,11 @@ export const getAttendeesCountForDashboard = async (userId: string) => {
 export const getAttendeesCountForDashboard = memoize(
   async (userId: string) => {
     await delay()
+<<<<<<< HEAD
     throw new Error('oops')
 >>>>>>> 20439d3 (start)
+=======
+>>>>>>> 5d11fc0 (start)
 
     const counts = await db
       .select({

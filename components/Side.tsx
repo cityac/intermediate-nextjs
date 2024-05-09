@@ -18,16 +18,26 @@ const isActive = (path: string, route: string) => {
   // all routes other than auth routes include "/dashboard"
   // so handle that first
   if (route === '/dashboard') {
+<<<<<<< HEAD
     return path === route
+=======
+    return path === '/dashboard'
+>>>>>>> 5d11fc0 (start)
   } else {
     return path.includes(route)
   }
 }
+<<<<<<< HEAD
 
 const Side = () => {
   const activeClass = 'bg-primary hover:bg-primary'
   const path = usePathname()
+=======
+>>>>>>> 5d11fc0 (start)
 
+const Side = () => {
+  const activeClass = `bg-primary hover:bg-primary`
+  const path = usePathname()
   return (
     <div className="w-full h-full px-3 relative">
       <div className="mb-12">
@@ -42,7 +52,11 @@ const Side = () => {
               <div
                 className={cn(
                   'w-full h-full py-2 px-2 hover:bg-content1 rounded-lg',
+<<<<<<< HEAD
                   isActive(path, link.route) && activeClass,
+=======
+                  isActive(path, link.route) && activeClass
+>>>>>>> 5d11fc0 (start)
                 )}
               >
                 {link.name}
