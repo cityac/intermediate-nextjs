@@ -4,6 +4,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { getUserFromToken } from './authTools'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { cache } from 'react'
 
 export const getCurrentUser = cache(async () => {
@@ -11,6 +12,11 @@ export const getCurrentUser = cache(async () => {
 
 export const getCurrentUser = async () => {
 >>>>>>> b6704f7 (init)
+=======
+import { cache } from 'react'
+
+export const getCurrentUser = cache(async () => {
+>>>>>>> 20439d3 (start)
   const token = cookies().get(COOKIE_NAME)
   if (!token) redirect('/signin')
 
@@ -25,5 +31,9 @@ export const getCurrentUser = async () => {
   if (!user) redirect('/signin')
 
   return user
+<<<<<<< HEAD
 }
 >>>>>>> b6704f7 (init)
+=======
+})
+>>>>>>> 20439d3 (start)

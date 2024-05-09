@@ -45,29 +45,41 @@ import { db } from '@/db/db'
 import { and, desc, eq, inArray } from 'drizzle-orm'
 import { rsvps, events, attendees } from '@/db/schema'
 import { delay } from './delay'
+import { memoize } from 'nextjs-better-unstable-cache'
 
-export const getRsvpsForDashboard = async (userId: string) => {
-  await delay()
+export const getRsvpsForDashboard = memoize(
+  async (userId: string) => {
+    await delay()
 
-  const userEvents = await db.query.events.findMany({
-    where: eq(events.createdById, userId),
-    columns: {
-      id: true,
-    },
-  })
+    const userEvents = await db.query.events.findMany({
+      where: eq(events.createdById, userId),
+      columns: {
+        id: true,
+      },
+    })
 
-  const userEventIds = userEvents.map((event) => event.id)
-  if (!userEventIds.length) return []
+    const userEventIds = userEvents.map((event) => event.id)
+    if (!userEventIds.length) return []
 
-  const data = await db
-    .selectDistinct()
-    .from(attendees)
-    .where(inArray(rsvps.eventId, userEventIds))
-    .leftJoin(rsvps, eq(attendees.id, rsvps.attendeeId))
-    .leftJoin(events, eq(rsvps.eventId, events.id))
-    .orderBy(desc(rsvps.createdAt))
-    .execute()
+    const data = await db
+      .selectDistinct()
+      .from(attendees)
+      .where(inArray(rsvps.eventId, userEventIds))
+      .leftJoin(rsvps, eq(attendees.id, rsvps.attendeeId))
+      .leftJoin(events, eq(rsvps.eventId, events.id))
+      .orderBy(desc(rsvps.createdAt))
+      .execute()
 
+<<<<<<< HEAD
   return data
 }
 >>>>>>> b6704f7 (init)
+=======
+    return data
+  },
+  {
+    persist: true,
+    revalidateTags: () => ['dashboard:rsvps'],
+  }
+)
+>>>>>>> 20439d3 (start)

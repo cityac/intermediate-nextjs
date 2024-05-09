@@ -1,30 +1,12 @@
-<<<<<<< HEAD
 import { eventsStatusColors } from '@/utils/common'
-=======
->>>>>>> b6704f7 (init)
 import { getEventsForDashboard } from '@/utils/events'
 import { getCurrentUser } from '@/utils/users'
 import { Chip } from '@nextui-org/react'
 import Link from 'next/link'
 
-<<<<<<< HEAD
 const EventsSlot = async () => {
   const user = await getCurrentUser()
   const events = await getEventsForDashboard(user.id)
-=======
-const statusColors = {
-  draft: 'warning',
-  live: 'success',
-  started: 'primary',
-  ended: 'disabled',
-  canceled: 'danger',
-}
-
-const EventsSlot = async () => {
-  const user = await getCurrentUser()
-  const events = await getEventsForDashboard(user.id)
-
->>>>>>> b6704f7 (init)
   return (
     <div className="w-full h-full p-4 flex justify-center">
       <div className="w-full">
@@ -39,11 +21,7 @@ const EventsSlot = async () => {
                 <span>{event.name}</span>
               </Link>
               <span>
-<<<<<<< HEAD
                 <Chip size="sm" color={eventsStatusColors[event.status] as any}>
-=======
-                <Chip size="sm" color={statusColors[event.status]}>
->>>>>>> b6704f7 (init)
                   {event.status}
                 </Chip>
               </span>
