@@ -20,13 +20,14 @@ export const registerUser = async (prevState: any, formData: FormData) => {
     const { token } = await signup(data)
     cookies().set(COOKIE_NAME, token)
   } catch (e) {
+    console.error(e)
     return { message: 'Failed to sign you up' }
   }
 
-  redirect('/dashboardf')
+  redirect('/dashboard')
 }
 
-export const signinUser = async (prevstate: any, formData: FormData) => {
+export const signinUser = async (prevState: any, formData: FormData) => {
   const data = authSchema.parse({
     email: formData.get('email'),
     password: formData.get('password'),

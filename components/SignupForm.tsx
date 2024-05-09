@@ -15,7 +15,7 @@ const SignupForm = () => {
   return (
     <form
       action={action}
-      className="bg-content1 border border-default-100 shadow-lg rounded-md p-3 flex flex-col gap-2 "
+      className="bg-content1 border border-default-100 shadow-lg rounded-md p-3 flex flex-col gap-2"
     >
       <h3 className="my-4">Sign up</h3>
       <Input fullWidth size="lg" placeholder="Email" name="email" required />
@@ -27,8 +27,7 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-      <SubmitButton label="Sign up" />
-
+      <SubmitButton label={'Sign up'} />
       <div>
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>

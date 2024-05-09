@@ -2,11 +2,13 @@
 import { signinUser } from '@/actions/auth'
 import { Input } from '@nextui-org/react'
 import Link from 'next/link'
-import { useFormState } from 'react-dom'
 import SubmitButton from './SubmitButton'
+import { useFormState } from 'react-dom'
+
+const initState = { message: null }
 
 const SigninForm = () => {
-  const [formState, action] = useFormState(signinUser, { message: null })
+  const [formState, action] = useFormState(signinUser, initState)
   return (
     <form
       action={action}
@@ -28,13 +30,13 @@ const SigninForm = () => {
         size="lg"
         type="password"
         placeholder="Password"
+        min={4}
       />
-
-      <SubmitButton label="Sign in" />
-
+      <SubmitButton label={'Sign in'} />
       <div>
         <Link href="/signup">{`Don't have an account?`}</Link>
       </div>
+      {formState?.message && <p>{formState.message}</p>}
     </form>
   )
 }
