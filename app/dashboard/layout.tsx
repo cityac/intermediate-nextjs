@@ -1,10 +1,9 @@
 'use client'
+
 import Shell from '@/components/Shell'
 import { usePathname } from 'next/navigation'
-import { env } from 'process'
 
-const DashboardLayout = ({ children, rsvps, events }) => {
-  //
+const Dashboard = ({ children, events, rsvps }) => {
   const path = usePathname()
 
   return (
@@ -26,4 +25,4 @@ const DashboardLayout = ({ children, rsvps, events }) => {
   )
 }
 
-export default DashboardLayout
+export default Dashboard

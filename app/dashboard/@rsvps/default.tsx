@@ -1,3 +1,5 @@
-const RsvpDefault = () => null
+const RsvpsDefault = () => {
+  return null
+}
 
-export default RsvpDefault
+export default RsvpsDefault

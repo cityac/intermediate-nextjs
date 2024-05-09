@@ -1,3 +1,5 @@
-const HomeDefault = () => null
+const HomeDefault = () => {
+  return null
+}
 
 export default HomeDefault

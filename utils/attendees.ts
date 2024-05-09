@@ -1,5 +1,4 @@
 import 'server-only'
-
 import { db } from '@/db/db'
 import { attendees, events, rsvps } from '@/db/schema'
 import { eq, sql } from 'drizzle-orm'
