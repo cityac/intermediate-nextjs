@@ -1,13 +1,6 @@
 import 'dotenv/config'
 import { defineConfig, Config } from 'drizzle-kit'
 
-console.log({
-  dbCredentials: {
-    url: process.env.TURSO_CONNECTION_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN!,
-  },
-})
-
 export default defineConfig({
   schema: './db/schema.ts',
   out: './migrations',
