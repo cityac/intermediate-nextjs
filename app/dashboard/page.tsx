@@ -1,5 +1,6 @@
 import { getAttendeesCountForDashboard } from '@/utils/attendees'
 import { getCurrentUser } from '@/utils/users'
+import { a } from 'framer-motion/client'
 
 const Home = async () => {
   const user = await getCurrentUser()
